@@ -24,7 +24,7 @@
             </tr>
 <!--            如果不为空，则遍历，取出数据显示在页面上-->
             <tr th:unless="${#lists.isEmpty(session.fruitList)}" th:each="fruit : ${session.fruitList}">
-                <!-- <td><a th:text="${fruit.fname}" th:href="@{'/edit.do?fid='+${fruit.fid}}">苹果</a></td> -->
+<!--                edit.do需要一个参数比如水果的id来查找对应的信息显示到页面上，因此需要传入一个参数-->
                 <td><a th:text="${fruit.fname}" th:href="@{/edit.do(fid=${fruit.fid})}">苹果</a></td>
                 <td th:text="${fruit.price}">5</td>
                 <td th:text="${fruit.fcount}">20</td>
