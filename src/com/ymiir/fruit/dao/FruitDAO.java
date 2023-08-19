@@ -16,4 +16,6 @@ public interface FruitDAO {
     void addFruit(Fruit fruit);
     // 查询总记录条数
     int getCount();
+    // 通过名字查找
+    List<Fruit> getFruitByName(String name);
 }

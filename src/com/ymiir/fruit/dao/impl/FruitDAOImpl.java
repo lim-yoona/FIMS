@@ -28,4 +28,7 @@ public class FruitDAOImpl extends BaseDAO<Fruit> implements FruitDAO {
     public int getCount(){
         return Integer.parseInt(super.executeComplexQuery("select count(*) from t_fruit")[0].toString());
     }
+    public List<Fruit> getFruitByName(String name){
+        return super.executeQuery("select * from t_fruit where fname=?",name);
+    }
 }
