@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib-themeleaf">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/lib-themeleaf" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/lib-themeleaf" recursive="false" />
+  </library>
+</component>
