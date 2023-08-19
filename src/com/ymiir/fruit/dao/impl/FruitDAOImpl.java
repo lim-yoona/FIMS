@@ -7,8 +7,9 @@ import com.ymiir.myssm.basedao.BaseDAO;
 import java.util.List;
 
 public class FruitDAOImpl extends BaseDAO<Fruit> implements FruitDAO {
-    public List<Fruit> getFruitList(){
-        return super.executeQuery("select * from t_fruit");
+    public List<Fruit> getFruitList(Integer PageNum){
+
+        return super.executeQuery("select * from t_fruit limit ?,5",(PageNum-1)*5);
     }
     public Fruit getFruitById(Integer  fid){return super.load("select * from t_fruit where fid=?",fid);}
 
@@ -22,5 +23,9 @@ public class FruitDAOImpl extends BaseDAO<Fruit> implements FruitDAO {
     public void addFruit(Fruit fruit){
         String sql = "insert into t_fruit  (fid,fname,price,fcount,remark) VALUES (0,?,?,?,?)";
         super.executeUpdate(sql,fruit.getFname(),fruit.getPrice(),fruit.getFcount(),fruit.getRemark());
+    }
+
+    public int getCount(){
+        return Integer.parseInt(super.executeComplexQuery("select count(*) from t_fruit")[0].toString());
     }
 }

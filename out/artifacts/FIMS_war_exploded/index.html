@@ -32,6 +32,14 @@
                 <td><img src="imgs/del.jpg" class="delImg" th:onclick="|delFruit(${fruit.fid})|"/></td>
             </tr>
         </table>
+        <div style="border:0px solid red;width:60%;margin-left:20%;text-align:right;">
+<!--            当前页面为1时首页和上一页不可点-->
+            <input type="button" value="首页" id="shouye" th:onclick="|page(1)|" th:disabled="${session.PageNum==1}"/>
+            <input type="button" value="上一页" th:onclick="|page(${session.PageNum-1})|" th:disabled="${session.PageNum==1}"/>
+            <input type="button" value="下一页" th:onclick="|page(${session.PageNum+1})|" th:disabled="${session.PageNum==(session.totalCount/5+1)}"/>
+<!--            当前页面为最后一页时尾页和下一页不可点-->
+            <input type="button" value="尾页" id="weiye" th:onclick="|page(${session.totalCount/5+1})|" th:disabled="${session.PageNum==(session.totalCount/5+1)}"/>
+        </div>
     </div>
 </div>
 </body>
